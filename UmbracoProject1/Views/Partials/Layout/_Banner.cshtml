@@ -1,0 +1,41 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IBanner>
+@using Umbraco.Cms.Core.PublishedCache
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Cms.Core.Services.Navigation
+
+@inject IPublishedContentCache PublishedContentCache
+@inject IDocumentNavigationQueryService DocumentNavigationQueryService
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@{ 
+    var selection = Model.Ancestors().ToArray(); 
+}
+
+<section class="bg-white-100 bg-no-repeat py-16
+    [background-image:url('\images\Rectangle-left.svg'),url('/images/Rectangle-right.svg')]
+    [background-position:left_bottom,top_right]">
+
+    <div class="container mx-auto px-4">
+        <h1 class="text-center font-bold text-[2.5rem] text-primary">@Model.PageTitle</h1>
+
+        <div class="flex justify-center gap-3 pt-3">
+            @if (selection?.Length > 0)
+            {
+                <ul class="flex items-center justify-center gap-2">
+                    @foreach (var item in selection.OrderBy(x => x.Level))
+                    {
+                        <li class="flex items-center">
+                            <a class="text-sm text-primary no-underline hover:text-sub-2" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                            <i class="fa-solid fa-angle-right ml-1 flex items-center justify-center leading-none text-[10px] text-primary"></i>
+                            </li>
+                    }
+
+                    <li class="flex items-center">
+                        <p class="text-sm text-sub-2">@Model.Name</p>
+                    </li>
+                </ul>
+            }
+        </div>
+
+    </div>
+</section>

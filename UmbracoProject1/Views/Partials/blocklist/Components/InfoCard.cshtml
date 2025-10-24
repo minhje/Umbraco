@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@{
+    var content = (ContentModels.InfoCard)Model.Content;
+}
+
+<div class="flex flex-col gap-4">
+    <h2 class="font-semibold text-primary text-[1.375rem]">@content.InfoTitle</h2>
+    <img src="@(content.InfoImage?.Url() ?? "~/images/thumbnails/Risk-Management.svg")"/>
+    <p class="font-normal text-body-text text-[0.875rem]">@content.InfoText</p>
+</div>

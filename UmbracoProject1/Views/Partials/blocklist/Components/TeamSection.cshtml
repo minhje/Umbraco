@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@{
+    var content = (ContentModels.TeamSection)Model.Content;
+    var teamList = content.TeamMemberList;
+}
+
+<section class="bg-white py-[4rem]">
+    <div class="mx-auto max-w-7xl px-4">
+        <div class="flex flex-col items-center">
+            <h2 class="font-bold text-sub-2 text-[.875rem] uppercase">@content.TeamLabel</h2>
+            <div class="rte">@Html.Raw(content.TeamTitle)</div>
+        </div>
+
+        <div class="-mx-2 flex flex-wrap gap-y-5 pt-5 pb-5">
+            @if (teamList != null)
+            {
+                for(var i = 0; i < teamList.Count; i++)
+                {
+                    var member = teamList[i];
+                    var colClass = i < 3 ? "w-1/3" : "w-1/4";
+
+                    <div class="@colClass px-2">
+                        <partial name="Partials/BlockList/Components/TeamMember" model="member" />
+                    </div>
+                }
+            }
+
+        </div>
+
+    </div>
+</section>
+

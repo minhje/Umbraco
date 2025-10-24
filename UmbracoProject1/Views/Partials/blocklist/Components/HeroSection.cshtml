@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@{
+    var content = (ContentModels.HeroSection)Model.Content;
+}
+
+<section class="relative min-h-[600px] py-[7rem]">
+    <div class="absolute inset-0">
+        @if (@content.HeroBgImage != null)
+        {
+            <img class="h-full w-full object-cover" src="@content.HeroBgImage.Url()" alt="@content.HeroBgImage.Name">
+        }
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-4">
+        <div class="flex w-6/12 flex-col gap-8">
+            <h1 class="leading-none font-bold text-primary text-[4.5rem]">@content.HeroTitle</h1>
+            <div class="rte">@Html.Raw(content.HeroText)</div>
+
+            @* Hjälp tagen av Copilot för att få länken att fungera som den ska. Funktionen kollar om det finns någon länk och tar isåfall ut den första länken och visar. *@
+            @if (content.HeroLink != null && content.HeroLink.Any())
+            {
+                var link = content.HeroLink.First();
+                <a class="cursor-pointer self-start rounded bg-primary px-10 py-3 font-bold text-white no-underline" href="@link.Url">@link.Name</a> 
+            }
+        </div>
+    </div>
+</section>
