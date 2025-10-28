@@ -33,6 +33,12 @@
       },
       "Hosting": {
         "Debug": true
+      },
+      "uSync": {
+        "settings": {
+          "ExportAtStartup": "All",
+          "ExportOnSave": true
+        }
       }
     }
   }

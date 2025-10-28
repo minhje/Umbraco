@@ -5,12 +5,15 @@
     var rootContent = Umbraco.ContentAtRoot();
     var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
 
+    var settings = Model.Settings as ContentModels.ContactSettings;
+    var sectionColor = settings?.ContactBgColor?.Color ?? "#FFFFFF";
+
     var contactAdress = siteSettings?.ContactAdress ?? "Ingen adress angiven";
     var contactPhone = siteSettings?.ContactPhone ?? "Inget telefonnummer angivet";
     var contactEmail = siteSettings?.ContactEmain ?? "Ingen email-adress angiven";
 }
 
-<section class="py-[4rem]">
+<section style="background-color:@($"{sectionColor}")" class="py-[4rem]">
     <div class="mx-auto flex max-w-5xl flex-row items-center justify-center gap-8 px-4">
 
         <div class="w-1/2">
@@ -36,7 +39,7 @@
                     <i class="fa-solid fa-phone text-2xl text-sub-2"></i>
                     <div class="flex flex-col">
                         <p class="font-semibold text-primary">@content.ContactPhoneLabel</p>
-                        <p class="text-body-text">@contactPhone</p>
+                        <p class="text-body-text italic">@contactPhone</p>
                     </div>
                 </div>
 
@@ -44,7 +47,7 @@
                     <i class="fa-solid fa-envelope text-2xl text-sub-2"></i>
                     <div class="flex flex-col">
                         <p class="font-semibold text-primary">@content.ContactEmailLabel</p>
-                        <p class="text-body-text">@contactEmail</p>
+                        <p class="text-body-text italic">@contactEmail</p>
                     </div>
                 </div>
             </div>
