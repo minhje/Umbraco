@@ -37,6 +37,7 @@
     --color-sub-2: #D9C3A9;
     --color-body-text: #535656;
     --color-body-text-100: #999999;
+    --color-dark: #0E0E0E;
     --color-border-gray: #EAEAEA;
     --color-border-400: #C7C8C9;
     --font-poppins: "poppins", sans-serif;
@@ -378,6 +379,9 @@
   .bg-border-gray {
     background-color: var(--color-border-gray);
   }
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
   .bg-primary {
     background-color: var(--color-primary);
   }
@@ -389,9 +393,6 @@
   }
   .\[background-image\:url\(\'\/images\/Rectangle-left\.svg\'\)\,url\(\'\/images\/Rectangle-right\.svg\'\)\] {
     background-image: url('/images/Rectangle-left.svg'),url('/images/Rectangle-right.svg');
-  }
-  .\[background-image\:url\(\'\\images\\Rectangle-left\.svg\'\)\,url\(\'\/images\/Rectangle-right\.svg\'\)\] {
-    background-image: url('\images\Rectangle-left.svg'),url('/images/Rectangle-right.svg');
   }
   .\[background-position\:left_bottom\,top_right\] {
     background-position: left bottom,top right;
@@ -417,6 +418,9 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
+  }
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
   }
@@ -435,8 +439,14 @@
   .pt-3 {
     padding-top: calc(var(--spacing) * 3);
   }
+  .pt-4 {
+    padding-top: calc(var(--spacing) * 4);
+  }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
+  }
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
   }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
