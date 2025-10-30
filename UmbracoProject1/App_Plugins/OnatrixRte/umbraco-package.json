@@ -211,6 +211,89 @@
           }
         }
       ]
+    },
+    {
+      "type": "tiptapToolbarExtension",
+      "kind": "styleMenu",
+      "alias": "Onatrix.Tiptap.ImageSizes",
+      "name": "Onatrix Image Sizes",
+      "meta": {
+        "alias": "OnatrixImageSizes",
+        "icon": "icon-picture",
+        "label": "Image sizes"
+      },
+      "items": [
+        {
+          "label": "Small (25%)",
+          "data": {
+            "tag": "img",
+            "class": "img-small"
+          },
+          "appearance": {
+            "style": "width:25%;"
+          }
+        },
+        {
+          "label": "Medium (50%)",
+          "data": {
+            "tag": "img",
+            "class": "img-medium"
+          },
+          "appearance": {
+            "style": "width:50%;"
+          }
+        },
+        {
+          "label": "Large (75%)",
+          "data": {
+            "tag": "img",
+            "class": "img-large"
+          },
+          "appearance": {
+            "style": "width:75%;"
+          }
+        },
+        {
+          "label": "Full (100%)",
+          "data": {
+            "tag": "img",
+            "class": "img-full"
+          },
+          "appearance": {
+            "style": "width:100%;"
+          }
+        },
+
+        {
+          "label": "Alignment",
+          "items": [
+            {
+              "label": "Left",
+              "data": {
+                "tag": "img",
+                "class": "img-left"
+              },
+              "appearance": { "style": "display:block; margin-right:auto;" }
+            },
+            {
+              "label": "Center",
+              "data": {
+                "tag": "img",
+                "class": "img-center"
+              },
+              "appearance": { "style": "display:block; margin:auto;" }
+            },
+            {
+              "label": "Right",
+              "data": {
+                "tag": "img",
+                "class": "img-right"
+              },
+              "appearance": { "style": "display:block; margin-left:auto;" }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
