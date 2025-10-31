@@ -23,11 +23,11 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
         var result = _formSubmissions.SaveCallbackRequest(model);
         if (!result)
         {
-            // formerror
+            TempData["FormError"] = "Something went wrong while submitting your request. Please try again later.";
             return RedirectToCurrentUmbracoPage();
         }
-        
-        // formsucess
+
+        TempData["FormSuccess"] = "Thank you! Your request had been recived and will get back to you soon";
         return RedirectToCurrentUmbracoPage();
     }
 }
