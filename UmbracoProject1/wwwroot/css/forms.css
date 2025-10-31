@@ -1,3 +1,11 @@
 ﻿.form-btn {
-    @apply bg-sub-2 text-primary w-full cursor-pointer rounded-md px-12 py-3 text-center font-bold text-[1.125rem] select-none;
+    @apply w-full cursor-pointer rounded-md bg-sub-2 px-12 py-3 text-center font-bold text-primary text-[1.125rem] select-none;
+}
+
+.input-validation-error {
+    @apply border-red-500 focus:ring-1 focus:ring-red-500;
+}
+
+.field-validation-error {
+    @apply mt-1 block text-sm text-red-600;
 }
