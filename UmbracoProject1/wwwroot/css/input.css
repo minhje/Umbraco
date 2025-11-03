@@ -1,4 +1,6 @@
 ﻿@import "tailwindcss";
+@import "./rte.css";
+@import "./forms.css";
 
 @theme {
     --color-neutral: #FFFFFF;
@@ -28,28 +30,9 @@ body {
    @apply font-poppins;
 }
 
-.rte h3 {
-    @apply font-bold text-[2.5rem] text-primary;
-}
 
 .current a {
     @apply text-sub-2;
-}
-
-.rte-ul {
-    @apply mt-3 list-disc pl-5;
-}
-
-.rte-ul li {
-    @apply text-rte-xs mb-3 text-body-text;
-}
-
-.rte-ul li::marker {
-    @apply text-sub-2;
-}
-
-.rtw p {
-    @apply mb-3; 
 }
 
 img {
