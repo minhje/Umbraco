@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@{
+    var content = (ContentModels.WhyChooseUsSection)Model.Content;
+}
+
+<section class="relative pt-[7rem] pb-0 text-center">
+
+    <div class="absolute inset-0 flex items-center justify-center">
+        @if (@content.ChooseUsBgImage != null)
+        {
+            <img class="max-w-4xl object-cover" src="@content.ChooseUsBgImage.Url()" alt="@content.ChooseUsBgImage.Name">
+        }
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-4xl px-4">
+        <div class="flex flex-col gap-8">
+            <h1 class="leading-none font-bold text-primary text-[4.5rem]">@content.ChooseUsTitle</h1>
+            <div class="rte">@Html.Raw(content.ChooseUsText)</div>
+
+            @* Hjälp tagen av Copilot (GPT-5 mini) för att få länken att fungera som den ska. Funktionen kollar om det finns någon länk och tar isåfall ut den första länken och visar. *@
+            @if (content.ChooseUsLink != null && content.ChooseUsLink.Any())
+            {
+                var link = content.ChooseUsLink.First();
+                <a class="mx-auto cursor-pointer self-start rounded bg-primary px-10 py-3 font-bold text-white no-underline" href="@link.Url">@link.Name</a>
+            }
+        </div>
+    </div>
+
+    <div class="mt-5 flex items-center justify-center">
+        @if (@content.ChooseUsImage != null)
+        {
+            <img class="z-50 max-w-4xl object-cover" src="@content.ChooseUsImage.Url()" alt="@content.ChooseUsImage.Name">
+        }
+    </div>
+</section>
