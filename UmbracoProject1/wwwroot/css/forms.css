@@ -2,6 +2,10 @@
     @apply w-full cursor-pointer rounded-md bg-sub-2 px-12 py-3 text-center font-bold text-primary text-[1.125rem] select-none;
 }
 
+.secondary-form-btn {
+    @apply cursor-pointer rounded-md bg-primary px-12 py-3 text-center font-bold text-sub-1 text-[1.125rem] select-none;
+}
+
 .input-validation-error {
     @apply border-red-500 focus:ring-1 focus:ring-red-500;
 }
