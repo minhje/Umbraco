@@ -1,0 +1,54 @@
+﻿@using UmbracoProject1.ViewModels
+@model CallbackFormViewModel
+
+@using (Html.BeginUmbracoForm("HandleCallbackForm", "Form", FormMethod.Post, new { novalidate = "novalidate", id = "callbackForm" }))
+{
+    <div class="flex flex-col gap-3 px-[2rem]">
+        <div class="flex flex-row gap-3">
+            <div class="w-6/12">
+                <label asp-for="Name" class="sr-only"></label>
+                <input asp-for="Name" type="text" placeholder="@Html.DisplayNameFor(x => x.Name)" class="w-full p-3 italic border text-body-text-100 border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none" />
+                <span asp-validation-for="Name"></span>
+            </div> 
+            <div class="w-6/12">
+                <label asp-for="Phone" class="sr-only"></label>
+                <input asp-for="Phone" type="text" placeholder="@Html.DisplayNameFor(x => x.Phone)" class="w-full p-3 italic text-body-text-100 border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none" />
+                <span asp-validation-for="Phone"></span>
+            </div>
+        </div>
+
+
+        <div class="flex flex-row gap-3">
+            <div class="w-6/12">
+                <label asp-for="Email" class="sr-only"></label>
+                <input asp-for="Email" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" class="w-full p-3 italic text-body-text-100 border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="relative w-6/12">
+                <label asp-for="SelectedOption" class="sr-only"></label>
+                <div>
+                    <select asp-for="SelectedOption" class="w-full appearance-none border border-gray-300 p-3 pr-10 focus:ring-2 focus:ring-primary focus:outline-none">
+
+                        <option value="" disabled hidden selected>Please select an option</option>
+                        @foreach (var o in Model.Options)
+                        {
+                            <option value="@o">@o</option>
+                        }
+
+                    </select>
+
+                    <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                        <i class="fa-solid fa-chevron-down h-4 w-4 text-gray-500"></i>
+                    </span>
+
+                </div>
+                <span asp-validation-for="SelectedOption"></span>
+            </div>
+        </div>
+
+        <div class="m-auto pb-[2.5rem]">
+            <button type="submit" class="secondary-form-btn">Submit</button>
+        </div>
+
+    </div>
+}
