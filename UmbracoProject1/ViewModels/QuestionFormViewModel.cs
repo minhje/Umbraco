@@ -10,7 +10,7 @@ public class QuestionFormViewModel
     public string Name { get; set; } = null!;
 
     [Required(ErrorMessage = "Email is required")]
-    [Display(Name = "Email adress")]
+    [Display(Name = "Email")]
     [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email adress")]
     public string Email { get; set; } = null!;
 
