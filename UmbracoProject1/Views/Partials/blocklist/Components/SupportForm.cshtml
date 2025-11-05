@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using UmbracoProject1.ViewModels
+@{
+    var content = (ContentModels.SupportForm)Model.Content;
+    var formViewModel = new SupportFormViewModel();
+}
+
+<div class="mt-10 flex flex-col gap-4 rounded bg-primary p-8 bg-no-repeat
+    [background-image:url('/images/Mail.svg')]
+    [background-position:right_bottom]">
+    <h2 class="font-semibold text-white text-[1.375rem]">@content.SupportFormTitle</h2>
+    <p class="font-normal text-white text-[0.875rem]">@content.SupportFormDescription</p>
+    <partial name="Partials/Forms/_SupportForm" model="formViewModel" />
+</div>
