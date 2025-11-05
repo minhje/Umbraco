@@ -31,6 +31,28 @@ public class FormSubmissionsService(IContentService contentService)
             return false;
         }
     }
+
+    public bool SaveSupportRequest(SupportFormViewModel model)
+    {
+        try
+        {
+            var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
+            if (container == null)
+                return false;
+
+            var requestEmail = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Email}";
+            var request = _contentService.Create(requestEmail, container, "SupportRequest");
+
+            request.SetValue("supportRequestEmail", model.Email);
+
+            var saveResult = _contentService.Save(request);
+            return saveResult.Success;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
 }
 
 
