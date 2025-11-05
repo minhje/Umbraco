@@ -1,0 +1,32 @@
+﻿@using UmbracoProject1.ViewModels
+@model QuestionFormViewModel
+
+@using (Html.BeginUmbracoForm("HandleQuestionForm", "Form", FormMethod.Post, new { novalidate = "novalidate", id = "questionForm" }))
+{
+    <div class="flex flex-col gap-6 px-[2rem]">
+
+        <div class="flex flex-row items-center gap-6">
+            <div class="w-6/12">
+                <label asp-for="Name" class="sr-only"></label>
+                <input asp-for="Name" type="text" placeholder="@Html.DisplayNameFor(x => x.Name)" class="w-full p-3 italic text-body-text-100 border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="w-6/12">
+                <label asp-for="Email" class="sr-only"></label>
+                <input asp-for="Email" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" class="w-full p-3 italic text-body-text-100 border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none" />
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+
+        <div>
+            <label asp-for="Question" class="sr-only"></label>
+            <textarea asp-for="Question" type="text" placeholder="@Html.DisplayNameFor(x => x.Question)" class="w-full min-h-[8rem] p-3 text-body-text-100 italic border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+            <span asp-validation-for="Question"></span>
+        </div>
+
+        <div class="pb-[2.5rem]">
+            <button type="submit" class="secondary-form-btn">Submit</button>
+        </div>
+
+    </div>
+}
