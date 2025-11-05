@@ -12,4 +12,18 @@
     <h2 class="font-semibold text-white text-[1.375rem]">@content.SupportFormTitle</h2>
     <p class="font-normal text-white text-[0.875rem]">@content.SupportFormDescription</p>
     <partial name="Partials/Forms/_SupportForm" model="formViewModel" />
+
+        @if (TempData["FormSuccess"] != null)
+        {
+        <div class="mb-4 rounded-md bg-green-50 p-4 text-green-700 text-[0.875rem]">
+                @TempData["FormSuccess"]
+            </div>
+        }
+
+        else if (TempData["FormError"] != null)
+        {
+        <div class="mb-4 rounded-md bg-red-50 p-4 text-red-700 text-[0.875rem]">
+                @TempData["FormError"]
+            </div>
+        }
 </div>
