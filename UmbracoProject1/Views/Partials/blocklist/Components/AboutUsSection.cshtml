@@ -5,8 +5,8 @@
 }
 
 <section class="m-auto items-center justify-center p-12">
-    <div class="m-auto flex flex-col items-center justify-center gap-8 md:flex-row">
-        <div class="flex flex-col md:w-3/12">
+    <div class="m-auto flex flex-col items-center justify-center gap-8 lg:flex-row">
+        <div class="flex flex-col lg:w-3/12">
             @if (@content.AboutUsImage != null)
             {
                 <img class="object-cover" src="@content.AboutUsImage.Url()" alt="@content.AboutUsImage.Name">
@@ -14,7 +14,7 @@
             <p class="text-sm text-[1rem] italic">@content.AboutUsImageCaption</p>
         </div>
 
-        <div class="rte md:w-6/12">
+        <div class="rte lg:w-6/12">
             @Html.Raw(content.AboutUsExcerpt)
         </div>
     </div>
