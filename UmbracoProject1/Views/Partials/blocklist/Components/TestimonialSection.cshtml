@@ -6,22 +6,25 @@
 
 <section class="bg-white-100">
     <div class="flex flex-col lg:flex-row">
-        <div class="flex flex-col gap-4 p-12 lg:w-6/12">
-            <p class="font-bold text-sub-2 uppercase">@content.TestimonialLabel</p>
-            <h2 class="text-4xl font-bold text-primary">@content.TestimonialTitle</h2>
-            <div>@Html.Raw(content.TestimonialReview)</div>
-            <div>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
-                <span class="fa-solid fa-star"></span>
+
+        <div class="flex items-center justify-center lg:w-6/12">
+            <div class="flex flex-col gap-4 p-12 lg:w-[500px]">
+                <p class="text-sm font-bold text-sub-2 uppercase">@content.TestimonialLabel</p>
+                <h2 class="text-4xl font-bold text-primary">@content.TestimonialTitle</h2>
+                <div>@Html.Raw(content.TestimonialReview)</div>
+                <div>
+                    <span class="fa-solid fa-star"></span>
+                    <span class="fa-solid fa-star"></span>
+                    <span class="fa-solid fa-star"></span>
+                    <span class="fa-solid fa-star"></span>
+                    <span class="fa-solid fa-star"></span>
+                </div>
+                <p>@content.TestimonialAuthor</p>
+                <p class="italic">@content.TestimonialCompany</p>
             </div>
-            <p>@content.TestimonialAuthor</p>
-            <p class="italic">@content.TestimonialCompany</p>
         </div>
 
-        <div class="lg:w-6/12">
+        <div class="m-auto lg:w-6/12">
             @if (content.TestimonialImage != null)
             {
                 <img src="@content.TestimonialImage.Url()" alt="@content.TestimonialImage.Name" />
