@@ -6,7 +6,7 @@
 
 <section class="relative bg-white py-[5rem]">
 
-    <div class="absolute inset-0 flex max-h-[52rem] items-center justify-center bg-primary">
+    <div class="absolute inset-0 flex h-10/12 items-center justify-center bg-primary md:max-h-[52rem]">
         @if (@content.SuccessStoryBgImage != null)
         {
             <img class="max-w-4xl object-cover" src="@content.SuccessStoryBgImage.Url()" alt="@content.SuccessStoryBgImage.Name">
@@ -18,7 +18,7 @@
             <p class="text-center font-bold text-sub-2 text-[0.875rem] uppercase">@content.SuccessStoryLabel</p>
             <h1 class="text-center leading-none font-bold text-white text-[2.5rem]">@content.SuccessStoryTitle</h1>
 
-            <div class="flex flex-row justify-between p-3 align-top">
+            <div class="flex flex-col items-center justify-between p-3 md:flex-row md:align-top">
                 <div class="rte w-[11rem]">@Html.Raw(content.SuccessStoryCustomers)</div>
                 <div class="rte w-[11rem]">@Html.Raw(content.SuccessStoryProjects)</div>
                 <div class="rte w-[11rem]">@Html.Raw(content.SuccessStoryBranches)</div>
