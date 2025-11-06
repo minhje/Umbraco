@@ -9,12 +9,6 @@
 @inject IDocumentNavigationQueryService DocumentNavigationQueryService
 @inject IPublishedValueFallback PublishedValueFallback
 @inject IPublishedUrlProvider PublishedUrlProvider
-@*
-    This snippet displays a list of links of the pages immediately under the top-most page in the content tree.
-    This is the home page for a standard website.
-    It also highlights the current active page/section in the navigation with the CSS class "current".
-*@
-
 
 @{
     var rootContent = Umbraco.ContentAtRoot();
@@ -30,7 +24,7 @@
         @if (logo != null)
         {
             <a href="/" class="flex-shrink-0">
-                <img src="@logo.Url()" alt="Onatrix"/>
+                <img src="@logo.Url()" alt="Onatrix" class="md:h-10"/>
             </a>
         }
         else
@@ -40,9 +34,11 @@
             </a>
         }
 
+        <button id="menu-toggle" class="fa-solid fa-bars text-2xl text-primary sm:block md:hidden!"></button>
+
         @if (selection?.Length > 0)
         {
-            <ul class="flex items-center gap-16">
+            <ul id="menu" class="absolute top-full left-0 hidden w-full flex-col items-center gap-4 py-4 shadow-md md:static md:flex md:w-auto md:flex-row md:gap-16 md:py-0 md:shadow-none">
                 @foreach (var item in selection)
                 {
                     <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
@@ -52,9 +48,15 @@
             </ul>
         }
 
-        <div class="flex items-center">
+        <div class="hidden items-center md:flex">
             <i class="fa-solid fa-magnifying-glass text-lg text-primary"></i>
         </div>
 
     </nav>
 </header>
+
+<script>
+    document.getElementById("menu-toggle")?.addEventListener("click", function () {
+    document.getElementById("menu")?.classList.toggle("hidden")
+     })
+</script>
