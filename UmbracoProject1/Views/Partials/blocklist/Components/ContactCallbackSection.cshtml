@@ -12,10 +12,10 @@
 }
 
 <section class="bg-white-100 py-10 lg:bg-transparent">
-        <div class="absolute w-full bg-gray-400">
+        <div class="absolute h-[30rem] w-full overflow-hidden lg:bg-gray-400">
             @if (@content.ContactCallbackBgImage != null)
             {
-                <img class="hidden h-full w-full object-cover opacity-60 lg:block" src="@content.ContactCallbackBgImage.Url()" alt="@content.ContactCallbackBgImage.Name">
+                <img class="hidden h-full w-full object-cover opacity-60 lg:flex" src="@content.ContactCallbackBgImage.Url()" alt="@content.ContactCallbackBgImage.Name">
             }
         </div>
 
