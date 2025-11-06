@@ -38,7 +38,7 @@
 
         @if (selection?.Length > 0)
         {
-            <ul id="menu" class="absolute top-full left-0 hidden w-full flex-col items-center gap-4 py-4 shadow-md md:static md:flex md:w-auto md:flex-row md:gap-16 md:py-0 md:shadow-none">
+            <ul id="menu" class="absolute top-full left-0 hidden w-full flex-col items-center gap-4 bg-white py-4 shadow-md md:static md:flex md:w-auto md:flex-row md:gap-16 md:bg-transparent md:py-0 md:shadow-none">
                 @foreach (var item in selection)
                 {
                     <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
