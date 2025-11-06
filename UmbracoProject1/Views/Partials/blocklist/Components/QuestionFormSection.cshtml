@@ -6,7 +6,7 @@
     var formViewModel = new QuestionFormViewModel();
 }
 
-<div class="mx-auto mt-10 flex w-9/12 flex-col gap-4 rounded bg-white">
+<div class="mx-auto mt-10 flex w-full flex-col gap-4 rounded bg-white md:w-9/12">
     <h2 class="px-[2rem] font-semibold text-primary text-[1.375rem]">@content.QuestionFormTitle</h2>
 
     <partial name="Partials/Forms/_QuestionForm" model="formViewModel" />
