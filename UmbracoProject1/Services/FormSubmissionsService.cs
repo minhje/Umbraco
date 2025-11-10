@@ -26,8 +26,9 @@ public class FormSubmissionsService(IContentService contentService)
             var saveResult = _contentService.Save(request);
             return saveResult.Success;
         }
-        catch (Exception ex)
+        catch
         {
+            
             return false;
         }
     }
@@ -48,7 +49,7 @@ public class FormSubmissionsService(IContentService contentService)
             var saveResult = _contentService.Save(request);
             return saveResult.Success;
         }
-        catch (Exception ex)
+        catch
         {
             return false;
         }
@@ -72,7 +73,7 @@ public class FormSubmissionsService(IContentService contentService)
             var saveResult = _contentService.Save(request);
             return saveResult.Success;
         }
-        catch (Exception ex)
+        catch
         {
             return false;
         }
