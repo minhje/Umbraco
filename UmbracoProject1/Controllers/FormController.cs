@@ -10,10 +10,13 @@ using UmbracoProject1.Services;
 using UmbracoProject1.ViewModels;
 namespace UmbracoProject1.Controllers;
 
-public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider, FormSubmissionsService formSubmissions) : SurfaceController(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
+public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider, FormSubmissionsService formSubmissions, IEmailService emailService) : SurfaceController(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
 {
     private readonly FormSubmissionsService _formSubmissions = formSubmissions;
-    public IActionResult HandleCallbackForm(CallbackFormViewModel model)
+    private readonly IEmailService _emailService = emailService;
+
+
+    public async Task<IActionResult> HandleCallbackForm(CallbackFormViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -27,11 +30,13 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
             return RedirectToCurrentUmbracoPage();
         }
 
+        await _emailService.SendEmailAsync(model.Email);
+
         TempData["FormSuccess"] = "Thank you! Your request had been recived and we will get back to you soon";
         return RedirectToCurrentUmbracoPage();
     }
 
-    public IActionResult HandleSupportForm(SupportFormViewModel model)
+    public async Task<IActionResult> HandleSupportForm(SupportFormViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -45,11 +50,13 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
             return RedirectToCurrentUmbracoPage();
         }
 
+        await _emailService.SendEmailAsync(model.Email);
+
         TempData["FormSuccess"] = "Thank you! Your request had been recived and we will get back to you soon";
         return RedirectToCurrentUmbracoPage();
     }
 
-    public IActionResult HandleQuestionForm(QuestionFormViewModel model)
+    public async Task<IActionResult> HandleQuestionForm(QuestionFormViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -62,6 +69,8 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
             TempData["FormError"] = "Something went wrong while submitting your request. Please try again later.";
             return RedirectToCurrentUmbracoPage();
         }
+
+        await _emailService.SendEmailAsync(model.Email);
 
         TempData["FormSuccess"] = "Thank you! Your request had been recived and we will get back to you soon";
         return RedirectToCurrentUmbracoPage();

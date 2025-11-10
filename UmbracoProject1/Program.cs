@@ -9,6 +9,8 @@ builder.CreateUmbracoBuilder()
     .Build();
 
 builder.Services.AddScoped<FormSubmissionsService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
 
 WebApplication app = builder.Build();
 
