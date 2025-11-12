@@ -92,13 +92,13 @@ namespace UmbracoProject1.Services
                   <body>
                     <div class='container'>
                         <div class='header'>
-                            <img src=''></img>
+                            <img src='https://onatrix-5959470f-bfeghrhqagh9evbw.swedencentral-01.azurewebsites.net/media/c24d5ihw/brand-logo.svg'></img>
                             <h1>Thank you for your email - we'll get in touch with you shortly!</h1>
                         </div>
                         <div class='content'>
                             <p> We have received your email and will contact you as soon as possible. </p>
                             <p> Until then, feel free to visit our website and learn more about our services: </p>
-                            <a href='' class='button'>Visit us</a>
+                            <a href='https://onatrix-5959470f-bfeghrhqagh9evbw.swedencentral-01.azurewebsites.net/' class='button'>Visit us</a>
                         </div>
                         <div class='footer'> 
                           <p>This is a automatic email - please do not reply.</p>
