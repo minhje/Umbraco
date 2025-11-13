@@ -1,7 +1,7 @@
 ﻿@using UmbracoProject1.ViewModels
 @model SupportFormViewModel
 
-@using (Html.BeginUmbracoForm("HandleSupportForm", "Form", new { area = "" }, new { novalidate = "novalidate", id = "supportForm" }))
+@using (Html.BeginUmbracoForm("HandleSupportForm", "Form", FormMethod.Post, new { novalidate = "novalidate", id = "supportForm" }))
 {
     <div class="relative flex flex-col gap-6 rounded bg-white px-4">
         <div>

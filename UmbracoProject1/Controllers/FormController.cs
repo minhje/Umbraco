@@ -16,6 +16,7 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
     private readonly IEmailService _emailService = emailService;
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> HandleCallbackForm(CallbackFormViewModel model)
     {
         if (!ModelState.IsValid)
@@ -37,6 +38,7 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> HandleSupportForm(SupportFormViewModel model)
     {
         if (!ModelState.IsValid)
@@ -58,6 +60,7 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> HandleQuestionForm(QuestionFormViewModel model)
     {
         if (!ModelState.IsValid)
