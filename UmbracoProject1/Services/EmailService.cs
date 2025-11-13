@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-// Hjälp tagen av ChatGTP 5. 
+// Hjälp tagen av ChatGTP 5 för att få formulären att fungera korrekt. 
 namespace UmbracoProject1.Services
 {
     public interface IEmailService
@@ -107,17 +107,6 @@ namespace UmbracoProject1.Services
                   </body>
                 </html>"
             };
-
-            //var recipients = new EmailRecipients(new List<EmailAddress>
-            //{
-            //    new EmailAddress(to)
-            //});
-
-            //var emailMessage = new Azure.Communication.Email.EmailMessage(
-            //    _senderAddress,
-            //    recipients,
-            //    emailContent
-            //);
 
             var emailMessage = new EmailMessage(
             _senderAddress,

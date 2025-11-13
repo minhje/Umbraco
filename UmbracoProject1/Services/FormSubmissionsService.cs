@@ -3,9 +3,10 @@ using UmbracoProject1.ViewModels;
 
 namespace UmbracoProject1.Services;
 
-public class FormSubmissionsService(IContentService contentService)
+public class FormSubmissionsService(IContentService contentService, ILogger<FormSubmissionsService> logger)
 {
     private readonly IContentService _contentService = contentService;
+    private readonly ILogger<FormSubmissionsService> _logger = logger;
 
     public bool SaveCallbackRequest(CallbackFormViewModel model)
     {
@@ -13,7 +14,10 @@ public class FormSubmissionsService(IContentService contentService)
         {
             var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
             if (container == null)
+            {
+                _logger.LogError("Form container 'formSubmissions' not found.");
                 return false;
+            }
 
             var requestName = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Name}";
             var request = _contentService.Create(requestName, container, "callbackRequest");
@@ -26,9 +30,9 @@ public class FormSubmissionsService(IContentService contentService)
             var saveResult = _contentService.Save(request);
             return saveResult.Success;
         }
-        catch
+        catch (Exception ex)
         {
-            
+            Console.WriteLine(ex);
             return false;
         }
     }
@@ -39,7 +43,10 @@ public class FormSubmissionsService(IContentService contentService)
         {
             var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
             if (container == null)
+            {
+                _logger.LogError("Form container 'formSubmissions' not found.");
                 return false;
+            }
 
             var requestEmail = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Email}";
             var request = _contentService.Create(requestEmail, container, "SupportRequest");
@@ -49,8 +56,9 @@ public class FormSubmissionsService(IContentService contentService)
             var saveResult = _contentService.Save(request);
             return saveResult.Success;
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine(ex);
             return false;
         }
     }
@@ -61,7 +69,10 @@ public class FormSubmissionsService(IContentService contentService)
         {
             var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
             if (container == null)
+            {
+                _logger.LogError("Form container 'formSubmissions' not found.");
                 return false;
+            }
 
             var requestName = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Name}";
             var request = _contentService.Create(requestName, container, "QuestionRequest");
@@ -73,8 +84,9 @@ public class FormSubmissionsService(IContentService contentService)
             var saveResult = _contentService.Save(request);
             return saveResult.Success;
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine(ex);
             return false;
         }
     }
