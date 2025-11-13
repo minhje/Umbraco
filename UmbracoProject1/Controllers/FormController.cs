@@ -15,7 +15,7 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
     private readonly FormSubmissionsService _formSubmissions = formSubmissions;
     private readonly IEmailService _emailService = emailService;
 
-
+    [HttpPost]
     public async Task<IActionResult> HandleCallbackForm(CallbackFormViewModel model)
     {
         if (!ModelState.IsValid)
@@ -36,6 +36,7 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
         return RedirectToCurrentUmbracoPage();
     }
 
+    [HttpPost]
     public async Task<IActionResult> HandleSupportForm(SupportFormViewModel model)
     {
         if (!ModelState.IsValid)
@@ -56,6 +57,7 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
         return RedirectToCurrentUmbracoPage();
     }
 
+    [HttpPost]
     public async Task<IActionResult> HandleQuestionForm(QuestionFormViewModel model)
     {
         if (!ModelState.IsValid)
